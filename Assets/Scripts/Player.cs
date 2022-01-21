@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    //Settings in Unity
+
     [Header ("Player's Movement")]
     [Tooltip ("How fast can the player go?")] public float MovementSpeed = 1f;
     [Tooltip("How high can the player jump?")] public float JumpVelocity = 1f;
+    [Tooltip("Is the player touching the ground?")] public bool Grounded = false;
 
     [Header("Player's Health System")]
     [Tooltip("How much should the player's HP max health is?")] public int HealthMax = 10;
@@ -22,11 +26,15 @@ public class Player : MonoBehaviour
     [Tooltip("Grants the player a BFG From Doom")] public bool BFG = false;
     [Tooltip("Give the player Dietz Nuts")] public bool DietzNuts = false;
 
-    public static Vector2 LastCheckpoint = new Vector2(0, 0);
+    //Cached Things
+
+public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     Collider2D myCollider2D;
+
+    //Default Unity Code
 
     void Start()
     {
@@ -39,8 +47,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Run();
+        Jump();
     }
 
+    //Movement Settings
 
     private void Run()
     {
@@ -51,4 +61,50 @@ public class Player : MonoBehaviour
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
+
+    private void Jump()
+    {
+        if (Input.GetButtonDown("Jump") && Grounded)
+        {
+            myRigidBody.velocity = Vector2.up * JumpVelocity;
+            myAnimator.SetBool("Jumping", true);
+        }
+    }
+
+    //Tiggers and Miscs
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            myAnimator.SetBool("Jumping", false);
+            Grounded = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            Grounded = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            Grounded = true;
+        }
+    }
+
+    private void FlipCharacter()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+        }
+    }
+
 }
