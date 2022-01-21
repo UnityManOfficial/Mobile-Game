@@ -166,7 +166,7 @@ MonoBehaviour:
   IsOnFire: 0
   IsBeingAnAsshole: 1
   InfiniteHealth: 0
-  NoClip: 0
+  NoClip: 1
   Fly: 0
   BFG: 0
   DietzNuts: 0
