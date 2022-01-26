@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Hazards
   - Enemy
+  - Death
   layers:
   - Default
   - TransparentFX
