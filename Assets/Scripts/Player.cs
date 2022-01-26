@@ -59,7 +59,6 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         velocity.x = moveX * MovementSpeed;
         myRigidBody.velocity = velocity;
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
 
     private void Jump()
@@ -67,7 +66,6 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         if (Input.GetButtonDown("Jump") && Grounded)
         {
             myRigidBody.velocity = Vector2.up * JumpVelocity;
-            myAnimator.SetBool("Jumping", true);
         }
     }
 
@@ -77,7 +75,6 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
     {
         if (collision.gameObject.layer == 7)
         {
-            myAnimator.SetBool("Jumping", false);
             Grounded = true;
         }
     }
