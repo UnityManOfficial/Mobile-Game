@@ -635,6 +635,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8825841244170686999, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ec908fd8079ba374480cff7302b39e8e, type: 2}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e200c6ffad6c554d8e51f5fcdcf08a0, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7fbb4fbe21770d8429a91c67186b4cc1, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 584f5abb971a0594581c233ead569fd1, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 33d9b6c1aaf858b4ba33c22a9966e76b, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a80b6995187e52488cd30ad9b6ebc9f, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dcc5fd0b6eaf954eb941bbaff358151, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 73003544ee318694da842e445c98f84b, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1355c7d6dee53a7499ad7e1733a39bea, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 651e7be5c11153a469e94c48dd49e016, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
     - target: {fileID: 8825841244170687006, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
       propertyPath: m_Name
       value: Player

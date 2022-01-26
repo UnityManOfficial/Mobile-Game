@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     [Header ("Player's Sounds")]
     [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
+    [Tooltip("Player's Steping on Grass Sounds")] public AudioClip[] GrassStepSounds;
     [Tooltip ("How loud would sounds be?")] [SerializeField] [Range(0, 1)] float Volume = 1.0f;
 
     [Header("Cheats")]
@@ -53,6 +54,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
     {
         Run();
         Jump();
+        FlipCharacter();
     }
 
     //Movement Settings
@@ -64,6 +66,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         velocity.x = moveX * MovementSpeed;
         myRigidBody.velocity = velocity;
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
 
     private void Jump()
@@ -76,9 +79,20 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     //Sounds
 
+    private void GrassStep()
+    {
+        AudioClip GrassSteps = GetRandomGrassStepClip();
+        AudioSource.PlayClipAtPoint(GrassSteps, Camera.main.transform.position, Volume);
+    }
+
     private AudioClip GetRandomDamageClip()
     {
         return DamageSounds[UnityEngine.Random.Range(0, DamageSounds.Length)];
+    }
+
+    private AudioClip GetRandomGrassStepClip()
+    {
+        return GrassStepSounds[UnityEngine.Random.Range(0, GrassStepSounds.Length)];
     }
 
     //Tiggers and Miscs
@@ -88,6 +102,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         if (collision.gameObject.layer == 7)
         {
             Grounded = true;
+            myAnimator.SetBool("Ground", true);
         }
         if (collision.gameObject.tag == "Death")
         {
@@ -102,6 +117,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         if (collision.gameObject.layer == 7)
         {
             Grounded = false;
+            myAnimator.SetBool("Ground", false);
         }
     }
 
