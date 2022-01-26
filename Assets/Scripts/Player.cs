@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     [Tooltip("Is the player on fire? (Not a killing spree. Like literally on fire)")] public bool IsOnFire = false;
     [Tooltip("Is the player being an asshole?")] public bool IsBeingAnAsshole = true;
 
+    [Header ("Player's Sounds")]
+    [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
+    [Tooltip ("How loud would sounds be?")] [SerializeField] [Range(0, 1)] float Volume = 1.0f;
+
     [Header("Cheats")]
     [Tooltip("Grants the player to have Infinite Health or just invincible")] public bool InfiniteHealth = false;
     [Tooltip("Grants the player to NoClip")] public bool NoClip = false;
@@ -42,6 +46,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         myAnimator = GetComponent<Animator>();
         myCollider2D = GetComponent<Collider2D>();
         HealthCurrent = HealthMax;
+        LastCheckpoint = transform.position;
     }
 
     void Update()
@@ -69,6 +74,13 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         }
     }
 
+    //Sounds
+
+    private AudioClip GetRandomDamageClip()
+    {
+        return DamageSounds[UnityEngine.Random.Range(0, DamageSounds.Length)];
+    }
+
     //Tiggers and Miscs
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -76,6 +88,12 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         if (collision.gameObject.layer == 7)
         {
             Grounded = true;
+        }
+        if (collision.gameObject.tag == "Death")
+        {
+            gameObject.transform.position = LastCheckpoint;
+            AudioClip DamageTake = GetRandomDamageClip();
+            AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
         }
     }
 
