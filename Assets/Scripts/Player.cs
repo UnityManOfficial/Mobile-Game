@@ -74,7 +74,13 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         if (Input.GetButtonDown("Jump") && Grounded)
         {
             myRigidBody.velocity = Vector2.up * JumpVelocity;
+            myAnimator.SetBool("Jumping", true);
         }
+    }
+
+    private void Falling()
+    {
+
     }
 
     //Sounds
@@ -99,10 +105,12 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7)
+        if (collision.gameObject.layer == 6)
         {
             Grounded = true;
             myAnimator.SetBool("Ground", true);
+            myAnimator.SetBool("Jumping", false);
+            myAnimator.SetBool("Falling", false);
         }
         if (collision.gameObject.tag == "Death")
         {
@@ -114,7 +122,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7)
+        if (collision.gameObject.layer == 6)
         {
             Grounded = false;
             myAnimator.SetBool("Ground", false);
@@ -123,7 +131,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7)
+        if (collision.gameObject.layer == 6)
         {
             Grounded = true;
         }

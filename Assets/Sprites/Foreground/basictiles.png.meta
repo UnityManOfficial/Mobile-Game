@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 8b91f96e1679a0247ae5339b1a1b2cb7
+guid: 7b500d252576db043b32458c2246795c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4856973652824790614
-    second: basictilesV1_0
+      213: 8162734612572433595
+    second: basictiles_0
   - first:
-      213: -737395398561076721
-    second: basictilesV1_1
+      213: 8227466153711589364
+    second: basictiles_1
   - first:
-      213: 7928648638700821763
-    second: basictilesV1_2
+      213: -1163727880438576583
+    second: basictiles_2
   - first:
-      213: 2423744760430662099
-    second: basictilesV1_3
+      213: -593606381512727094
+    second: basictiles_3
   - first:
-      213: -4663319907328027315
-    second: basictilesV1_4
+      213: 9117922464606976498
+    second: basictiles_4
   - first:
-      213: 7512386444298850771
-    second: basictilesV1_5
+      213: 4692901479288133787
+    second: basictiles_5
   - first:
-      213: 1019948147896030966
-    second: basictilesV1_6
+      213: -1641636280998425407
+    second: basictiles_6
   - first:
-      213: -5646517073767176375
-    second: basictilesV1_7
+      213: -4967532383611307896
+    second: basictiles_7
   - first:
-      213: 1490013492791691436
-    second: basictilesV1_8
+      213: 3401163635582949684
+    second: basictiles_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,7 +73,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -130,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: basictilesV1_0
+      name: basictiles_0
       rect:
         serializedVersion: 2
         x: 0
@@ -144,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6569d0ccdcf676340800000000000000
-      internalID: 4856973652824790614
+      spriteID: bbc6a22d1ebd74170800000000000000
+      internalID: 8162734612572433595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_1
+      name: basictiles_1
       rect:
         serializedVersion: 2
         x: 64
@@ -165,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0a62c9bace34c5f0800000000000000
-      internalID: -737395398561076721
+      spriteID: 4f7578530e4dd2270800000000000000
+      internalID: 8227466153711589364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_2
+      name: basictiles_2
       rect:
         serializedVersion: 2
         x: 128
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30d95aadde7380e60800000000000000
-      internalID: 7928648638700821763
+      spriteID: 93a8d3f88ab99dfe0800000000000000
+      internalID: -1163727880438576583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_3
+      name: basictiles_3
       rect:
         serializedVersion: 2
         x: 0
@@ -207,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d11faf940fd2a120800000000000000
-      internalID: 2423744760430662099
+      spriteID: ac5678d142613c7f0800000000000000
+      internalID: -593606381512727094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_4
+      name: basictiles_4
       rect:
         serializedVersion: 2
         x: 64
@@ -228,14 +228,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4594b9604f884fb0800000000000000
-      internalID: -4663319907328027315
+      spriteID: 2f9f3783c2e598e70800000000000000
+      internalID: 9117922464606976498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_5
+      name: basictiles_5
       rect:
         serializedVersion: 2
         x: 128
@@ -249,14 +249,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d194e33bab514860800000000000000
-      internalID: 7512386444298850771
+      spriteID: b98dfd60809802140800000000000000
+      internalID: 4692901479288133787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_6
+      name: basictiles_6
       rect:
         serializedVersion: 2
         x: 0
@@ -270,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f619a4cf65972e00800000000000000
-      internalID: 1019948147896030966
+      spriteID: 1cc02bc008cb739e0800000000000000
+      internalID: -1641636280998425407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_7
+      name: basictiles_7
       rect:
         serializedVersion: 2
         x: 64
@@ -291,14 +291,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 947edef43aa83a1b0800000000000000
-      internalID: -5646517073767176375
+      spriteID: 8883990cd97cf0bb0800000000000000
+      internalID: -4967532383611307896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: basictilesV1_8
+      name: basictiles_8
       rect:
         serializedVersion: 2
         x: 128
@@ -312,8 +312,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca8436490679da410800000000000000
-      internalID: 1490013492791691436
+      spriteID: 439d5e17e4c533f20800000000000000
+      internalID: 3401163635582949684
       vertices: []
       indices: 
       edges: []
