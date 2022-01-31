@@ -55,17 +55,25 @@ MonoBehaviour:
   HealthCurrent: 10
   IsPoisoned: 0
   IsOnFire: 0
-  IsBeingAnAsshole: 1
   DamageSounds:
   - {fileID: 8300000, guid: ff2aa56b073f5914db445e6028143b4c, type: 3}
   - {fileID: 8300000, guid: 44df2a0849c847d46b00478aebc6d44b, type: 3}
   - {fileID: 8300000, guid: b4d432997ed5ba74baaea26e27333647, type: 3}
+  GrassStepSounds:
+  - {fileID: 8300000, guid: 2e200c6ffad6c554d8e51f5fcdcf08a0, type: 3}
+  - {fileID: 8300000, guid: 7fbb4fbe21770d8429a91c67186b4cc1, type: 3}
+  - {fileID: 8300000, guid: 584f5abb971a0594581c233ead569fd1, type: 3}
+  - {fileID: 8300000, guid: 33d9b6c1aaf858b4ba33c22a9966e76b, type: 3}
+  - {fileID: 8300000, guid: 0a80b6995187e52488cd30ad9b6ebc9f, type: 3}
+  - {fileID: 8300000, guid: 6dcc5fd0b6eaf954eb941bbaff358151, type: 3}
+  - {fileID: 8300000, guid: 73003544ee318694da842e445c98f84b, type: 3}
+  - {fileID: 8300000, guid: 1355c7d6dee53a7499ad7e1733a39bea, type: 3}
+  - {fileID: 8300000, guid: 651e7be5c11153a469e94c48dd49e016, type: 3}
+  - {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
   Volume: 0.1
   InfiniteHealth: 0
-  NoClip: 1
+  NoClip: 0
   Fly: 0
-  BFG: 0
-  DietzNuts: 0
 --- !u!95 &8825841244170686999
 Animator:
   serializedVersion: 3
@@ -76,7 +84,7 @@ Animator:
   m_GameObject: {fileID: 8825841244170687006}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec908fd8079ba374480cff7302b39e8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     [Tooltip("How much should the player's HP health is?")] public int HealthCurrent = 10;
     [Tooltip("Is the player poisoned?")] public bool IsPoisoned = false;
     [Tooltip("Is the player on fire? (Not a killing spree. Like literally on fire)")] public bool IsOnFire = false;
-    [Tooltip("Is the player being an asshole?")] public bool IsBeingAnAsshole = true;
 
     [Header ("Player's Sounds")]
     [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
@@ -28,8 +27,6 @@ public class Player : MonoBehaviour
     [Tooltip("Grants the player to have Infinite Health or just invincible")] public bool InfiniteHealth = false;
     [Tooltip("Grants the player to NoClip")] public bool NoClip = false;
     [Tooltip("Grants the player to Fly")] public bool Fly = false;
-    [Tooltip("Grants the player a BFG From Doom")] public bool BFG = false;
-    [Tooltip("Give the player Dietz Nuts")] public bool DietzNuts = false;
 
     //Cached Things
 
