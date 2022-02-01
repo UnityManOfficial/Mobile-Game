@@ -7,21 +7,22 @@ public class Player : MonoBehaviour
 
     //Settings in Unity
 
-    [Header ("Player's Movement")]
-    [Tooltip ("How fast can the player go?")] public float MovementSpeed = 1f;
+    [Header("Player's Movement")]
+    [Tooltip("How fast can the player go?")] public float MovementSpeed = 1f;
     [Tooltip("How high can the player jump?")] public float JumpVelocity = 1f;
+    [Tooltip("Minimun fall distance till taking fall damage?")] public float MinFallDistance = -20;
     [Tooltip("Is the player touching the ground?")] public bool Grounded = false;
+
 
     [Header("Player's Health System")]
     [Tooltip("How much should the player's HP max health is?")] public int HealthMax = 10;
     [Tooltip("How much should the player's HP health is?")] public int HealthCurrent = 10;
-    [Tooltip("Is the player poisoned?")] public bool IsPoisoned = false;
-    [Tooltip("Is the player on fire? (Not a killing spree. Like literally on fire)")] public bool IsOnFire = false;
+    [Tooltip("Maximum Fall Damage Taken")] public int MaxFallDamage = 1;
 
-    [Header ("Player's Sounds")]
+    [Header("Player's Sounds")]
     [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
     [Tooltip("Player's Steping on Grass Sounds")] public AudioClip[] GrassStepSounds;
-    [Tooltip ("How loud would sounds be?")] [SerializeField] [Range(0, 1)] float Volume = 1.0f;
+    [Tooltip("How loud would sounds be?")] [SerializeField] [Range(0, 1)] float Volume = 1.0f;
 
     [Header("Cheats")]
     [Tooltip("Grants the player to have Infinite Health or just invincible")] public bool InfiniteHealth = false;
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour
 
     //Cached Things
 
-public static Vector2 LastCheckpoint = new Vector2(0, 0);
+    public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -51,8 +52,9 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
     {
         Run();
         Jump();
-        FlipCharacter();
         Falling();
+        Health();
+        if (myRigidBody.velocity.y <= MinFallDistance && Grounded) { FallDamageTest(); }
     }
 
     //Health Settings
@@ -61,9 +63,24 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
     {
         if (HealthCurrent <= 0)
         {
-
+            Death();
         }
     }
+
+    private void Death()
+    {
+        gameObject.transform.position = LastCheckpoint;
+        AudioClip DamageTake = GetRandomDamageClip();
+        AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
+        HealthCurrent = HealthMax;
+    }
+
+
+    private void FallDamageTest()
+    {
+        HealthCurrent -= MaxFallDamage;
+    }
+
 
     private void TakeDamage()
     {
@@ -81,6 +98,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         myRigidBody.velocity = velocity;
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+        FlipCharacter();
     }
 
     private void Jump()
@@ -134,9 +152,7 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "Death")
         {
-            gameObject.transform.position = LastCheckpoint;
-            AudioClip DamageTake = GetRandomDamageClip();
-            AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
+            Death();
         }
     }
 
