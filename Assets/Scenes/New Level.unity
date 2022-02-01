@@ -1595,7 +1595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 324285571184196668, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8744063
+      value: 2.8744068
       objectReference: {fileID: 0}
     - target: {fileID: 324285571184196668, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1637,17 +1637,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 324285571184196803, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 324285571395201367, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
+      propertyPath: m_CameraDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 324285571395201367, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
+      propertyPath: m_TrackedObjectOffset.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 324285571937923345, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1135241562}
+    - target: {fileID: 324285571937923345, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
+      propertyPath: m_Priority
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 324285571937923346, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0353203
+      value: -1.0353208
       objectReference: {fileID: 0}
     - target: {fileID: 324285571937923346, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.7892084
+      objectReference: {fileID: 0}
+    - target: {fileID: 324285571937923346, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ba2355fa0ebb934083db6180dcd50e0, type: 3}
@@ -1767,7 +1787,7 @@ GameObject:
   - component: {fileID: 1988529768}
   m_Layer: 9
   m_Name: Ice Hazard
-  m_TagString: Hazards
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

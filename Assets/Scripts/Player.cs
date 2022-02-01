@@ -52,6 +52,23 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
         Run();
         Jump();
         FlipCharacter();
+        Falling();
+    }
+
+    //Health Settings
+
+    private void Health()
+    {
+        if (HealthCurrent <= 0)
+        {
+
+        }
+    }
+
+    private void TakeDamage()
+    {
+        AudioClip DamageTake = GetRandomDamageClip();
+        AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
     }
 
     //Movement Settings
@@ -77,7 +94,14 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
 
     private void Falling()
     {
-
+        if (myRigidBody.velocity.y <= -2.5)
+        {
+            myAnimator.SetBool("Falling", true);
+        }
+        else if (myRigidBody.velocity.y <= 0)
+        {
+            myAnimator.SetBool("Falling", false);
+        }
     }
 
     //Sounds
@@ -107,7 +131,6 @@ public static Vector2 LastCheckpoint = new Vector2(0, 0);
             Grounded = true;
             myAnimator.SetBool("Ground", true);
             myAnimator.SetBool("Jumping", false);
-            myAnimator.SetBool("Falling", false);
         }
         if (collision.gameObject.tag == "Death")
         {
