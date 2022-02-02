@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [Tooltip("How much should the player's HP max health is?")] public int HealthMax = 10;
     [Tooltip("How much should the player's HP health is?")] public int HealthCurrent = 10;
     [Tooltip("Maximum Fall Damage Taken")] public int MaxFallDamage = 1;
+    [Tooltip("Player will take Fall Damage")] public bool WillFallDamage = false;
+    [Tooltip("Make the player not taking damage")] public bool NoDamage = false;
 
     [Header("Player's Sounds")]
     [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour
         Jump();
         Falling();
         Health();
-        if (myRigidBody.velocity.y <= MinFallDistance && Grounded) { FallDamageTest(); }
+        FallDamage();
     }
 
     //Health Settings
@@ -67,18 +69,28 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Death()
+    IEnumerator Death()
     {
-        gameObject.transform.position = LastCheckpoint;
-        AudioClip DamageTake = GetRandomDamageClip();
-        AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
         HealthCurrent = HealthMax;
+        gameObject.transform.position = LastCheckpoint;
+        NoDamage = true;
+        yield return new WaitForSeconds(1);
+        NoDamage = false;
     }
 
 
-    private void FallDamageTest()
+    private void FallDamage()
     {
-        HealthCurrent -= MaxFallDamage;
+        if (myRigidBody.velocity.y <= MinFallDistance)
+        {
+            WillFallDamage = true;
+        }
+        else if (Grounded && WillFallDamage)
+        {
+            HealthCurrent -= MaxFallDamage;
+            WillFallDamage = false;
+            StartCoroutine(InvincibleDamage());
+        }
     }
 
 
@@ -86,6 +98,16 @@ public class Player : MonoBehaviour
     {
         AudioClip DamageTake = GetRandomDamageClip();
         AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
+        StartCoroutine(InvincibleDamage());
+    }
+
+    IEnumerator InvincibleDamage()
+    {
+        NoDamage = true;
+        myAnimator.SetBool("Inv", true);
+        yield return new WaitForSeconds(1);
+        myAnimator.SetBool("Inv", false);
+        NoDamage = false;
     }
 
     //Movement Settings
@@ -144,13 +166,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.tag == "Ground")
         {
             Grounded = true;
             myAnimator.SetBool("Ground", true);
             myAnimator.SetBool("Jumping", false);
         }
-        if (collision.gameObject.tag == "Death")
+
+        if(collision.gameObject.tag == "Enemy" && !NoDamage)
+        {
+            TakeDamage();
+        }
+
+        if (collision.gameObject.tag == "Death" && !NoDamage)
         {
             Death();
         }
