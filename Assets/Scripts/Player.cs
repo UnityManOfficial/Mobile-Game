@@ -96,6 +96,8 @@ public class Player : MonoBehaviour
 
     private void TakeDamage()
     {
+        myRigidBody.velocity = new Vector2(5f, 5f);
+        myRigidBody.AddForce(new Vector2(50, 50));
         AudioClip DamageTake = GetRandomDamageClip();
         AudioSource.PlayClipAtPoint(DamageTake, Camera.main.transform.position, Volume);
         StartCoroutine(InvincibleDamage());
@@ -176,6 +178,12 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Enemy" && !NoDamage)
         {
             TakeDamage();
+        }
+
+        if (collision.gameObject.tag == "Hazards" && !NoDamage)
+        {
+            TakeDamage();
+            Grounded = true;
         }
 
         if (collision.gameObject.tag == "Death" && !NoDamage)
