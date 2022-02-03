@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [Tooltip("How high can the player jump?")] public float JumpVelocity = 1f;
     [Tooltip("Minimun fall distance till taking fall damage?")] public float MinFallDistance = -20;
     [Tooltip("Is the player touching the ground?")] public bool Grounded = false;
+    public GameObject me;
 
 
     [Header("Player's Health System")]
@@ -175,6 +176,14 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("Jumping", false);
         }
 
+        if (collision.gameObject.tag == "MovingGround")
+        {
+            me.transform.parent = collision.gameObject.transform;
+            Grounded = true;
+            myAnimator.SetBool("Ground", true);
+            myAnimator.SetBool("Jumping", false);
+        }
+
         if(collision.gameObject.tag == "Enemy" && !NoDamage)
         {
             TakeDamage();
@@ -194,7 +203,20 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.tag == "Ground")
+        {
+            Grounded = false;
+            myAnimator.SetBool("Ground", false);
+        }
+
+        if (collision.gameObject.tag == "MovingGround")
+        {
+            me.transform.parent = null;
+            Grounded = false;
+            myAnimator.SetBool("Ground", false);
+        }
+
+        if (collision.gameObject.tag == "Hazards")
         {
             Grounded = false;
             myAnimator.SetBool("Ground", false);
@@ -203,7 +225,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if (collision.gameObject.tag == "Ground")
         {
             Grounded = true;
         }

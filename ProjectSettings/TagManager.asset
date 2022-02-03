@@ -8,6 +8,7 @@ TagManager:
   - Hazards
   - Enemy
   - Death
+  - MovingGround
   layers:
   - Default
   - TransparentFX

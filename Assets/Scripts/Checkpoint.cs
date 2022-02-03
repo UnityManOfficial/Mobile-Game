@@ -13,4 +13,10 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.DrawIcon(transform.position, "Checkpoint.png", true);
+    }
+
 }
