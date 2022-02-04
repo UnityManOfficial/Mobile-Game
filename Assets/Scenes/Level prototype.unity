@@ -6329,6 +6329,90 @@ PrefabInstance:
       propertyPath: me
       value: 
       objectReference: {fileID: 862046825}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: GrassStepSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e71aed15e5ab56144a1e5611b66cea2c, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: db62132c1c63d304fb49d8d70cf40963, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e61e49e13a9ca7046a7901a15ad2fdbd, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f0e13fa6c4389a345a0311af0d76d71a, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52bb9aa0d96285f4d850b09b1b4a14f9, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70fb5988f09ed5b48abdfeda8e16aff4, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1555a51ce86858b46ab194ea9852b216, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 77ccb50befe80084fa3234716d64a1ae, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3632150c27cb61f48a53fea202921dbd, type: 3}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: StoneStepSounds.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 61b2c879b4c40844ea73e7044315736f, type: 3}
     - target: {fileID: 8825841244170687006, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
       propertyPath: m_Name
       value: Player
