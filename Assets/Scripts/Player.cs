@@ -199,6 +199,11 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(Death());
         }
+
+        if (collision.gameObject.tag == "NextLevel")
+        {
+            
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
