@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     [Header("Player's Sounds")]
     [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
-    [Tooltip("Player's Steping on Grass Sounds")] public AudioClip[] GrassStepSounds;
+    [Tooltip("Player's stepping on stone Sounds")] public AudioClip[] StoneStepSounds;
     [Tooltip("How loud would sounds be?")] [SerializeField] [Range(0, 1)] float Volume = 1.0f;
 
     [Header("Cheats")]
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     {
         if (HealthCurrent <= 0)
         {
-            Death();
+            StartCoroutine(Death());
         }
     }
 
@@ -74,9 +74,8 @@ public class Player : MonoBehaviour
     {
         HealthCurrent = HealthMax;
         gameObject.transform.position = LastCheckpoint;
-        NoDamage = true;
+        StartCoroutine(InvincibleDamage());
         yield return new WaitForSeconds(1);
-        NoDamage = false;
     }
 
 
@@ -97,6 +96,7 @@ public class Player : MonoBehaviour
 
     private void TakeDamage()
     {
+        HealthCurrent -= 1;
         myRigidBody.velocity = new Vector2(5f, 5f);
         myRigidBody.AddForce(new Vector2(50, 50));
         AudioClip DamageTake = GetRandomDamageClip();
@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
 
     private AudioClip GetRandomGrassStepClip()
     {
-        return GrassStepSounds[UnityEngine.Random.Range(0, GrassStepSounds.Length)];
+        return StoneStepSounds[UnityEngine.Random.Range(0, StoneStepSounds.Length)];
     }
 
     //Tiggers and Miscs
@@ -197,7 +197,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Death" && !NoDamage)
         {
-            Death();
+            StartCoroutine(Death());
         }
     }
 
@@ -229,7 +229,12 @@ public class Player : MonoBehaviour
         {
             Grounded = true;
         }
+        if (collision.gameObject.tag == "MovingGround")
+        {
+            Grounded = true;
+        }
     }
+
 
     private void FlipCharacter()
     {
