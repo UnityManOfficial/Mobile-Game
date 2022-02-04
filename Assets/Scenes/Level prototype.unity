@@ -5901,7 +5901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157192100364373867, guid: 458e5a2a1edc3e14284b7d53d2009688, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.3493548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 157192100364373867, guid: 458e5a2a1edc3e14284b7d53d2009688, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6149,10 +6149,6 @@ PrefabInstance:
     - target: {fileID: 4821410633997427599, guid: 2b6a4eea7d431af4cba8599a5bd0ff04, type: 3}
       propertyPath: m_Name
       value: Moving Platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 4821410633997427599, guid: 2b6a4eea7d431af4cba8599a5bd0ff04, type: 3}
-      propertyPath: m_TagString
-      value: MovingGround
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6a4eea7d431af4cba8599a5bd0ff04, type: 3}
