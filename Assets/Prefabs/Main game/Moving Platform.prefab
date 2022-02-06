@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 4821410633997427595}
   - component: {fileID: 4821410633997427593}
   - component: {fileID: 166218030}
+  - component: {fileID: 1179153930}
   m_Layer: 0
   m_Name: Moving Platform
   m_TagString: MovingGround
@@ -264,6 +265,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1179153930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821410633997427599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43784f0ad2afb94788dfc747652385e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconPath: MovingPlatform
 --- !u!1 &4821410634070190473
 GameObject:
   m_ObjectHideFlags: 0

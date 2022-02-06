@@ -12,11 +12,4 @@ public class Checkpoint : MonoBehaviour
             Player.LastCheckpoint = transform.position;
         }
     }
-
-    void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        Gizmos.DrawIcon(transform.position, "Checkpoint.png", true);
-    }
-
 }

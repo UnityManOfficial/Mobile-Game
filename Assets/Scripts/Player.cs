@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class Player : MonoBehaviour
     [Tooltip("How high can the player jump?")] public float JumpVelocity = 1f;
     [Tooltip("Minimun fall distance till taking fall damage?")] public float MinFallDistance = -20;
     [Tooltip("Is the player touching the ground?")] public bool Grounded = false;
-    public GameObject me;
 
 
     [Header("Player's Health System")]
@@ -70,15 +70,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator Death()
-    {
-        HealthCurrent = HealthMax;
-        gameObject.transform.position = LastCheckpoint;
-        StartCoroutine(InvincibleDamage());
-        yield return new WaitForSeconds(1);
-    }
-
-
     private void FallDamage()
     {
         if (myRigidBody.velocity.y <= MinFallDistance)
@@ -111,6 +102,14 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1);
         myAnimator.SetBool("Inv", false);
         NoDamage = false;
+    }
+
+    IEnumerator Death()
+    {
+        HealthCurrent = HealthMax;
+        gameObject.transform.position = LastCheckpoint;
+        StartCoroutine(InvincibleDamage());
+        yield return new WaitForSeconds(1);
     }
 
     //Movement Settings
@@ -178,7 +177,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "MovingGround")
         {
-            me.transform.parent = collision.gameObject.transform;
+            transform.parent = collision.gameObject.transform;
             Grounded = true;
             myAnimator.SetBool("Ground", true);
             myAnimator.SetBool("Jumping", false);
@@ -202,7 +201,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "NextLevel")
         {
-            
+            StartCoroutine(NextLevel());
         }
     }
 
@@ -216,7 +215,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "MovingGround")
         {
-            me.transform.parent = null;
+            transform.parent = null;
             Grounded = false;
             myAnimator.SetBool("Ground", false);
         }
@@ -240,6 +239,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator NextLevel()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     private void FlipCharacter()
     {
