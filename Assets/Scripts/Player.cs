@@ -194,7 +194,7 @@ public class Player : MonoBehaviour
             Grounded = true;
         }
 
-        if (collision.gameObject.tag == "Death" && !NoDamage)
+        if (collision.gameObject.tag == "Death")
         {
             StartCoroutine(Death());
         }
