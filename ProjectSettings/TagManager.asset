@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Death
   - MovingGround
+  - NextLevel
   layers:
   - Default
   - TransparentFX

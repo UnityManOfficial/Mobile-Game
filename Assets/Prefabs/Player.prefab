@@ -63,17 +63,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ff2aa56b073f5914db445e6028143b4c, type: 3}
   - {fileID: 8300000, guid: 44df2a0849c847d46b00478aebc6d44b, type: 3}
   - {fileID: 8300000, guid: b4d432997ed5ba74baaea26e27333647, type: 3}
-  GrassStepSounds:
-  - {fileID: 8300000, guid: 2e200c6ffad6c554d8e51f5fcdcf08a0, type: 3}
-  - {fileID: 8300000, guid: 7fbb4fbe21770d8429a91c67186b4cc1, type: 3}
-  - {fileID: 8300000, guid: 584f5abb971a0594581c233ead569fd1, type: 3}
-  - {fileID: 8300000, guid: 33d9b6c1aaf858b4ba33c22a9966e76b, type: 3}
-  - {fileID: 8300000, guid: 0a80b6995187e52488cd30ad9b6ebc9f, type: 3}
-  - {fileID: 8300000, guid: 6dcc5fd0b6eaf954eb941bbaff358151, type: 3}
-  - {fileID: 8300000, guid: 73003544ee318694da842e445c98f84b, type: 3}
-  - {fileID: 8300000, guid: 1355c7d6dee53a7499ad7e1733a39bea, type: 3}
-  - {fileID: 8300000, guid: 651e7be5c11153a469e94c48dd49e016, type: 3}
-  - {fileID: 8300000, guid: 6807dd1e70c9fd44f8459a6dcb7f0aa7, type: 3}
+  StoneStepSounds:
+  - {fileID: 8300000, guid: e71aed15e5ab56144a1e5611b66cea2c, type: 3}
+  - {fileID: 8300000, guid: db62132c1c63d304fb49d8d70cf40963, type: 3}
+  - {fileID: 8300000, guid: e61e49e13a9ca7046a7901a15ad2fdbd, type: 3}
+  - {fileID: 8300000, guid: f0e13fa6c4389a345a0311af0d76d71a, type: 3}
+  - {fileID: 8300000, guid: 52bb9aa0d96285f4d850b09b1b4a14f9, type: 3}
+  - {fileID: 8300000, guid: 70fb5988f09ed5b48abdfeda8e16aff4, type: 3}
+  - {fileID: 8300000, guid: 1555a51ce86858b46ab194ea9852b216, type: 3}
+  - {fileID: 8300000, guid: 77ccb50befe80084fa3234716d64a1ae, type: 3}
+  - {fileID: 8300000, guid: 3632150c27cb61f48a53fea202921dbd, type: 3}
+  - {fileID: 8300000, guid: 61b2c879b4c40844ea73e7044315736f, type: 3}
   Volume: 0.1
   InfiniteHealth: 0
   NoClip: 0
