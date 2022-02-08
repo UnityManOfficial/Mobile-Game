@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
             Grounded = true;
             myAnimator.SetBool("Ground", true);
             myAnimator.SetBool("Jumping", false);
+            myAnimator.SetBool("Falling", false);
         }
 
         if (collision.gameObject.tag == "MovingGround")
@@ -181,6 +182,7 @@ public class Player : MonoBehaviour
             Grounded = true;
             myAnimator.SetBool("Ground", true);
             myAnimator.SetBool("Jumping", false);
+            myAnimator.SetBool("Falling", false);
         }
 
         if(collision.gameObject.tag == "Enemy" && !NoDamage)
@@ -232,10 +234,16 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             Grounded = true;
+            myAnimator.SetBool("Ground", true);
+            myAnimator.SetBool("Falling", false);
+            myAnimator.SetBool("Jumping", false);
         }
         if (collision.gameObject.tag == "MovingGround")
         {
             Grounded = true;
+            myAnimator.SetBool("Ground", true);
+            myAnimator.SetBool("Falling", false);
+            myAnimator.SetBool("Jumping", false);
         }
     }
 
