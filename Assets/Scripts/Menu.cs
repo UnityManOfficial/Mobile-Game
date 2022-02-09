@@ -8,18 +8,22 @@ public class Menu : MonoBehaviour
 
     public GameObject GameMenu;
     public GameObject GameCredits;
+    public GameObject Difficulty;
     public GameObject Loading;
     public GameObject Fade;
     public GameObject Audio;
+    public GameObject Player;
     public AudioClip UIClick;
 
     Animator myAnimatorFade;
     Animator myAnimatorMusic;
+    Animator myAnimatorPlayer;
 
     void Start()
     {
         myAnimatorFade = Fade.GetComponent<Animator>();
         myAnimatorMusic = Audio.GetComponent<Animator>();
+        myAnimatorPlayer = Player.GetComponent<Animator>();
     }
 
     public void MainMenuButton()
@@ -46,11 +50,12 @@ public class Menu : MonoBehaviour
     IEnumerator StartGame()
     {
         AudioSource.PlayClipAtPoint(UIClick, Camera.main.transform.position, 0.1f);
-        GameMenu.SetActive(false);
-        Loading.SetActive(true);
+        myAnimatorFade.SetBool("Go", true);
         yield return new WaitForSeconds(1);
+        GameMenu.SetActive(false);
+        Difficulty.SetActive(true);
         myAnimatorFade.SetBool("Go", false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
     }
 
     public void GameMenuuButton()
@@ -86,7 +91,34 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+    public void EasyButton()
+    {
+        myAnimatorPlayer.SetBool("Run", true);
+        StartCoroutine(StartGameNow());
+    }
 
+    public void MediumButton()
+    {
+        myAnimatorPlayer.SetBool("Run", true);
+        StartCoroutine(StartGameNow());
+    }
+
+    public void HardButton()
+    {
+        myAnimatorPlayer.SetBool("Hard", true);
+        StartCoroutine(StartGameNow());
+    }
+
+    IEnumerator StartGameNow()
+    {
+        yield return new WaitForSeconds(2);
+        myAnimatorFade.SetBool("Go", true);
+        yield return new WaitForSeconds(1);
+        Difficulty.SetActive(false);
+        Fade.SetActive(false);
+        Loading.SetActive(true);
+        SceneManager.LoadScene("New Level");
+    }
 
 
 
