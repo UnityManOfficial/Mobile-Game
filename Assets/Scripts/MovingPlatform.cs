@@ -5,28 +5,54 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
 
+    private GameObject target = null;
+    private Vector3 offset;
     public List<Transform> waypoints;
     public GameObject WorldConstraint;
     public float Speed;
-    public int target;
+    public int waypointTarget;
+
+    private void Start()
+    {
+        target = null;
+    }
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[target].position, Speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointTarget].position, Speed * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        if (transform.position == waypoints[target].position)
+        if (transform.position == waypoints[waypointTarget].position)
         {
-            if (target == waypoints.Count - 1)
+            if (waypointTarget == waypoints.Count - 1)
             {
-                target = 0;
+                waypointTarget = 0;
             }
             else
             {
-                target += 1;
+                waypointTarget += 1;
             }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        target = collision.gameObject;
+        offset = target.transform.position - transform.position;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        target = null;
+    }
+
+    private void LateUpdate()
+    {
+        if (target != null)
+        {
+            target.transform.position = transform.position + offset;
         }
     }
 
