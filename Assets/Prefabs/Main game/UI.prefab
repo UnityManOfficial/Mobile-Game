@@ -94,10 +94,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Player, Assembly-CSharp
-          m_MethodName: CannotMove
-          m_Mode: 1
+          m_MethodName: GoOn
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -110,10 +110,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Player, Assembly-CSharp
-          m_MethodName: GoOn
-          m_Mode: 6
+          m_MethodName: CannotMove
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -298,10 +298,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Player, Assembly-CSharp
-          m_MethodName: GoOn
-          m_Mode: 6
+          m_MethodName: CannotMove
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -314,10 +314,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Player, Assembly-CSharp
-          m_MethodName: CannotMove
-          m_Mode: 1
+          m_MethodName: GoOn
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: JumpButton
         m_Mode: 1
@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 2357559312632426349}
   - component: {fileID: 2357559312632426350}
   - component: {fileID: 2357559312632426351}
+  - component: {fileID: 2074685050}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -640,6 +641,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2074685050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357559312632426336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2a5f2082d81474a93599a49453a45c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Touch: {fileID: 66721424}
 --- !u!1 &2357559313126650350
 GameObject:
   m_ObjectHideFlags: 0
