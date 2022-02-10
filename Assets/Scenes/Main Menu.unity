@@ -813,6 +813,7 @@ MonoBehaviour:
   Audio: {fileID: 262329548}
   Player: {fileID: 4002501655309420314}
   UIClick: {fileID: 8300000, guid: c2c17c2518e620348a349f78b5652fd4, type: 3}
+  Death: {fileID: 8300000, guid: bd6ad986c9a80a346ba4fd88c2c94e07, type: 3}
 --- !u!4 &181934955
 Transform:
   m_ObjectHideFlags: 0
@@ -3473,7 +3474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4002501655309420315}
   - component: {fileID: 4002501655309420316}
-  - component: {fileID: 4002501655309420317}
   - component: {fileID: 4002501655309420307}
   - component: {fileID: 4002501655309420305}
   - component: {fileID: 4002501655309420318}
@@ -3511,46 +3511,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4002501655309420314}
   m_CullTransparentMesh: 1
---- !u!114 &4002501655309420317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4002501655309420314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edb51303f694ac442a77c4b3dab4f63e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 5
-  JumpVelocity: 5
-  MinFallDistance: -20
-  Grounded: 0
-  HealthMax: 10
-  HealthCurrent: 10
-  MaxFallDamage: 1
-  WillFallDamage: 0
-  NoDamage: 0
-  DamageSounds:
-  - {fileID: 8300000, guid: ff2aa56b073f5914db445e6028143b4c, type: 3}
-  - {fileID: 8300000, guid: 44df2a0849c847d46b00478aebc6d44b, type: 3}
-  - {fileID: 8300000, guid: b4d432997ed5ba74baaea26e27333647, type: 3}
-  StoneStepSounds:
-  - {fileID: 8300000, guid: e71aed15e5ab56144a1e5611b66cea2c, type: 3}
-  - {fileID: 8300000, guid: db62132c1c63d304fb49d8d70cf40963, type: 3}
-  - {fileID: 8300000, guid: e61e49e13a9ca7046a7901a15ad2fdbd, type: 3}
-  - {fileID: 8300000, guid: f0e13fa6c4389a345a0311af0d76d71a, type: 3}
-  - {fileID: 8300000, guid: 52bb9aa0d96285f4d850b09b1b4a14f9, type: 3}
-  - {fileID: 8300000, guid: 70fb5988f09ed5b48abdfeda8e16aff4, type: 3}
-  - {fileID: 8300000, guid: 1555a51ce86858b46ab194ea9852b216, type: 3}
-  - {fileID: 8300000, guid: 77ccb50befe80084fa3234716d64a1ae, type: 3}
-  - {fileID: 8300000, guid: 3632150c27cb61f48a53fea202921dbd, type: 3}
-  - {fileID: 8300000, guid: 61b2c879b4c40844ea73e7044315736f, type: 3}
-  Volume: 0.1
-  InfiniteHealth: 0
-  NoClip: 0
-  Fly: 0
 --- !u!50 &4002501655309420318
 Rigidbody2D:
   serializedVersion: 4

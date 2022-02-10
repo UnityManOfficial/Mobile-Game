@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     public GameObject Audio;
     public GameObject Player;
     public AudioClip UIClick;
+    public AudioClip Death;
 
     Animator myAnimatorFade;
     Animator myAnimatorMusic;
@@ -43,7 +44,6 @@ public class Menu : MonoBehaviour
 
     public void StartGameButton()
     {
-        myAnimatorMusic.SetBool("Fade", true);
         StartCoroutine(StartGame());
     }
 
@@ -106,12 +106,15 @@ public class Menu : MonoBehaviour
     public void HardButton()
     {
         myAnimatorPlayer.SetBool("Hard", true);
+        AudioSource.PlayClipAtPoint(Death, Camera.main.transform.position, 0.1f);
         StartCoroutine(StartGameNow());
     }
 
     IEnumerator StartGameNow()
     {
+        AudioSource.PlayClipAtPoint(UIClick, Camera.main.transform.position, 0.1f);
         yield return new WaitForSeconds(2);
+        myAnimatorMusic.SetBool("Fade", true);
         myAnimatorFade.SetBool("Go", true);
         yield return new WaitForSeconds(1);
         Difficulty.SetActive(false);
