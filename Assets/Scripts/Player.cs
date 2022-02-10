@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     [Tooltip("Minimun fall distance till taking fall damage?")] public float MinFallDistance = -20;
     [Tooltip("Is the player touching the ground?")] public bool Grounded = false;
 
+    [Header("Android Debug")]
+    public bool Moving = false;
+    public bool DoNotMove = false;
+
 
     [Header("Player's Health System")]
     [Tooltip("How much should the player's HP max health is?")] public int HealthMax = 10;
@@ -44,6 +48,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        DoNotMove = true;
         myRigidBody = transform.GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCollider2D = GetComponent<Collider2D>();
@@ -58,6 +63,7 @@ public class Player : MonoBehaviour
         Falling();
         Health();
         FallDamage();
+        TouchHandler();
     }
 
     //Health Settings
@@ -114,6 +120,28 @@ public class Player : MonoBehaviour
 
     //Movement Settings
 
+    private void TouchHandler()
+    {
+        if(DoNotMove)
+        {
+
+        }
+        else if(Moving)
+        {
+            RunButton();
+        }
+        else if (!Moving)
+        {
+            RunLButton();
+        }
+    }
+
+    public void GoOn(bool Movement)
+    {
+        DoNotMove = false;
+        Moving = Movement;
+    }
+
     private void Run()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -123,6 +151,42 @@ public class Player : MonoBehaviour
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("Running", playerHasHorizontalSpeed);
         FlipCharacter();
+    }
+
+    public void CannotMove()
+    {
+        DoNotMove = true;
+    }
+    
+    public void RunButton()
+    {
+        if(!DoNotMove && Moving)
+        {
+            myRigidBody.velocity = new Vector2(MovementSpeed, 0f);
+            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+            myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+            FlipCharacter();
+        }
+    }
+
+    public void RunLButton()
+    {
+        if(!DoNotMove && !Moving)
+        {
+            myRigidBody.velocity = new Vector2(-MovementSpeed, 0f);
+            bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+            myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+            FlipCharacter();
+        }
+    }
+
+    public void JumpButton()
+    {
+        if (Grounded)
+        {
+            myRigidBody.velocity = Vector2.up * JumpVelocity;
+            myAnimator.SetBool("Jumping", true);
+        }
     }
 
     private void Jump()

@@ -55,9 +55,4 @@ public class MovingPlatform : MonoBehaviour
             target.transform.position = transform.position + offset;
         }
     }
-
-    private void OnDrawGizmo()
-    {
-        
-    }
 }
