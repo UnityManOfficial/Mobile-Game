@@ -50,10 +50,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb51303f694ac442a77c4b3dab4f63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   MovementSpeed: 5
   JumpVelocity: 5
   MinFallDistance: -20
   Grounded: 0
+  Moving: 0
+  DoNotMove: 0
   HealthMax: 10
   HealthCurrent: 10
   MaxFallDamage: 1

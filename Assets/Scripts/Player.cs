@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
+    public HealthBar healthBar;
+
     //Settings in Unity
 
     [Header("Player's Movement")]
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
         myCollider2D = GetComponent<Collider2D>();
         HealthCurrent = HealthMax;
         LastCheckpoint = transform.position;
+        healthBar.SetMaxHealth(HealthMax);
     }
 
     void Update()
@@ -94,6 +97,7 @@ public class Player : MonoBehaviour
     private void TakeDamage()
     {
         HealthCurrent -= 1;
+        healthBar.SetHealth(HealthCurrent);
         myRigidBody.velocity = new Vector2(5f, 5f);
         myRigidBody.AddForce(new Vector2(50, 50));
         AudioClip DamageTake = GetRandomDamageClip();
@@ -116,6 +120,7 @@ public class Player : MonoBehaviour
         gameObject.transform.position = LastCheckpoint;
         StartCoroutine(InvincibleDamage());
         yield return new WaitForSeconds(1);
+        healthBar.SetHealth(HealthCurrent);
     }
 
     //Movement Settings
