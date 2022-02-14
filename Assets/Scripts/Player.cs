@@ -167,7 +167,9 @@ public class Player : MonoBehaviour
     {
         if(!DoNotMove && Moving)
         {
-            myRigidBody.velocity = new Vector2(MovementSpeed, 0f);
+            var velocity = GetComponent<Rigidbody2D>().velocity;
+            velocity.x = MovementSpeed;
+            myRigidBody.velocity = velocity;
             bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
             myAnimator.SetBool("Running", playerHasHorizontalSpeed);
             FlipCharacter();
@@ -178,7 +180,9 @@ public class Player : MonoBehaviour
     {
         if(!DoNotMove && !Moving)
         {
-            myRigidBody.velocity = new Vector2(-MovementSpeed, 0f);
+            var velocity = GetComponent<Rigidbody2D>().velocity;
+            velocity.x = -MovementSpeed;
+            myRigidBody.velocity = velocity;
             bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
             myAnimator.SetBool("Running", playerHasHorizontalSpeed);
             FlipCharacter();

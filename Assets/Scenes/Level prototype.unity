@@ -5170,13 +5170,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 50172950, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50172950, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2012124990}
-    - target: {fileID: 66721424, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 572871640, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5287,10 +5287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2357559312632426348, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049634351798290692, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5774,6 +5770,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1460686189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8275356039339283893, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
+  m_PrefabInstance: {fileID: 982760397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9289201e2b331f4dbcf3e75b7017b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1476572342
 GameObject:
   m_ObjectHideFlags: 0
@@ -6475,6 +6482,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1854974244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1903968340, guid: 6b56d26ec2d1cf54baa149421f4d8713, type: 3}
+  m_PrefabInstance: {fileID: 982760397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1854974249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854974244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2012124990}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: JumpButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1872935506
 GameObject:
   m_ObjectHideFlags: 0
@@ -7091,7 +7132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6275403152855379776, guid: 7b9d227d42f884d42a1d0ea295a756bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2180312
+      value: -2.2180228
       objectReference: {fileID: 0}
     - target: {fileID: 6275403152855379777, guid: 7b9d227d42f884d42a1d0ea295a756bb, type: 3}
       propertyPath: m_BoundingShape2D
@@ -7115,11 +7156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6275403153268475039, guid: 7b9d227d42f884d42a1d0ea295a756bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8411011
+      value: 0.8411012
       objectReference: {fileID: 0}
     - target: {fileID: 6275403153268475039, guid: 7b9d227d42f884d42a1d0ea295a756bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5101426
+      value: 1.5101342
       objectReference: {fileID: 0}
     - target: {fileID: 6275403153268475039, guid: 7b9d227d42f884d42a1d0ea295a756bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7332,6 +7373,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8825841244170687001, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1460686189}
     - target: {fileID: 8825841244170687006, guid: 36900625707bac54cab1575c4e282c8a, type: 3}
       propertyPath: m_Name
       value: Player

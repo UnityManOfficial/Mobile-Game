@@ -9,6 +9,8 @@ public class PlatformChecker : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject Fade;
     public GameObject Loading;
+    public GameObject Health;
+    public GameObject PauseButton;
     private bool GamePaused = false;
 
     Animator MyAnimatorFade;
@@ -56,6 +58,9 @@ public class PlatformChecker : MonoBehaviour
     {
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
+        Touch.SetActive(false);
+        Health.SetActive(false);
+        PauseButton.SetActive(false);
     }
 
     public void Unpause()
@@ -63,13 +68,23 @@ public class PlatformChecker : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
+        Health.SetActive(true);
+        PauseButton.SetActive(true);
+
+#if UNITY_ANDROID
+        Touch.SetActive(true);
+#endif
     }
 
     IEnumerator MenuStart()
     {
         Time.timeScale = 1f;
         MyAnimatorFade.SetBool("Go", true);
+        PauseMenu.SetActive(false);
         yield return new WaitForSeconds(1);
+        Touch.SetActive(false);
+        PauseButton.SetActive(false);
+        Loading.SetActive(true);
         MyAnimatorFade.SetBool("Go", false);
         SceneManager.LoadScene("Main Menu");
     }
