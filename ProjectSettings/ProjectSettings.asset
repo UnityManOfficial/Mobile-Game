@@ -41,7 +41,7 @@ PlayerSettings:
     height: 1
   m_SplashScreenLogos:
   - logo: {fileID: 21300000, guid: 4a8e1b06361ea9d44bc901798f97b74c, type: 3}
-    duration: 2
+    duration: 3
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1280
@@ -162,8 +162,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.UnityStudios.Run
-    Standalone: com.UnityStudios.Run
+    Android: com.UnityStudios.Pixel
+    Standalone: com.UnityStudios.Pixel
   buildNumber:
     Standalone: 0
     iPhone: 0
