@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    public HealthBar healthBar;
-
     //Settings in Unity
 
     [Header("Player's Movement")]
@@ -21,11 +19,7 @@ public class Player : MonoBehaviour
     public bool DoNotMove = false;
 
 
-    [Header("Player's Health System")]
-    [Tooltip("How much should the player's HP max health is?")] public int HealthMax = 10;
-    [Tooltip("How much should the player's HP health is?")] public int HealthCurrent = 10;
-    [Tooltip("Maximum Fall Damage Taken")] public int MaxFallDamage = 1;
-    [Tooltip("Player will take Fall Damage")] public bool WillFallDamage = false;
+    [Header("Player's Health System (Moved it to Game)")]
     [Tooltip("Make the player not taking damage")] public bool NoDamage = false;
 
     [Header("Player's Sounds")]
@@ -48,20 +42,14 @@ public class Player : MonoBehaviour
 
     //Default Unity Code
 
-    void awake()
-    {
-        
-    }
-
     void Start()
     {
         DoNotMove = true;
         myRigidBody = transform.GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCollider2D = GetComponent<Collider2D>();
-        HealthCurrent = HealthMax;
         LastCheckpoint = transform.position;
-        healthBar.SetMaxHealth(HealthMax);
+        
     }
 
     void Update()
@@ -69,40 +57,19 @@ public class Player : MonoBehaviour
         Run();
         Jump();
         Falling();
-        Health();
-        FallDamage();
         TouchHandler();
     }
 
     //Health Settings
 
-    private void Health()
+    public void Health()
     {
-        if (HealthCurrent <= 0)
-        {
-            StartCoroutine(Death());
-        }
+       StartCoroutine(Death());
     }
-
-    private void FallDamage()
-    {
-        if (myRigidBody.velocity.y <= MinFallDistance)
-        {
-            WillFallDamage = true;
-        }
-        else if (Grounded && WillFallDamage)
-        {
-            HealthCurrent -= MaxFallDamage;
-            WillFallDamage = false;
-            StartCoroutine(InvincibleDamage());
-        }
-    }
-
 
     private void TakeDamage()
     {
-        HealthCurrent -= 1;
-        healthBar.SetHealth(HealthCurrent);
+        FindObjectOfType<Game>().TakeDamage();
         myRigidBody.velocity = new Vector2(5f, 5f);
         myRigidBody.AddForce(new Vector2(50, 50));
         AudioClip DamageTake = GetRandomDamageClip();
@@ -119,13 +86,23 @@ public class Player : MonoBehaviour
         NoDamage = false;
     }
 
+    public void DeathStart()
+    {
+        StartCoroutine(Death());
+    }
+
+    public void DeathAnimation()
+    {
+        NoDamage = true;
+        myAnimator.SetBool("Death", true);
+        gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+    }
+
     IEnumerator Death()
     {
-        HealthCurrent = HealthMax;
         gameObject.transform.position = LastCheckpoint;
         StartCoroutine(InvincibleDamage());
         yield return new WaitForSeconds(1);
-        healthBar.SetHealth(HealthCurrent);
     }
 
     //Movement Settings

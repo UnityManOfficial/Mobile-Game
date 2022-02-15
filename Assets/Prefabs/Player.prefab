@@ -58,7 +58,7 @@ MonoBehaviour:
   Moving: 0
   DoNotMove: 0
   HealthMax: 10
-  HealthCurrent: 10
+  HealthCurrent: 1
   MaxFallDamage: 1
   WillFallDamage: 0
   NoDamage: 0
