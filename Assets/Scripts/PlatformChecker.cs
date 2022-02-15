@@ -9,7 +9,6 @@ public class PlatformChecker : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject Fade;
     public GameObject Loading;
-    public GameObject Health;
     public GameObject PauseButton;
     private bool GamePaused = false;
 
@@ -18,6 +17,7 @@ public class PlatformChecker : MonoBehaviour
     public void Start()
     {
         MyAnimatorFade = Fade.GetComponent<Animator>();
+        FindObjectOfType<Game>().HealthOn();
 #if UNITY_STANDALONE_WIN
         Touch.SetActive(false);
 
@@ -59,8 +59,8 @@ public class PlatformChecker : MonoBehaviour
         PauseMenu.SetActive(true);
         Time.timeScale = 0;
         Touch.SetActive(false);
-        Health.SetActive(false);
         PauseButton.SetActive(false);
+        FindObjectOfType<Game>().HealthOff();
     }
 
     public void Unpause()
@@ -68,12 +68,19 @@ public class PlatformChecker : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GamePaused = false;
-        Health.SetActive(true);
         PauseButton.SetActive(true);
+        FindObjectOfType<Game>().HealthOn();
 
 #if UNITY_ANDROID
         Touch.SetActive(true);
 #endif
+    }
+
+    public void GameOver()
+    {
+        Touch.SetActive(false);
+        PauseButton.SetActive(false);
+        FindObjectOfType<Game>().HealthOff();
     }
 
     IEnumerator MenuStart()
@@ -81,7 +88,10 @@ public class PlatformChecker : MonoBehaviour
         Time.timeScale = 1f;
         MyAnimatorFade.SetBool("Go", true);
         PauseMenu.SetActive(false);
+        FindObjectOfType<Game>().HealthOff();
+        PauseButton.SetActive(false);
         yield return new WaitForSeconds(1);
+        FindObjectOfType<Game>().ResetGameSession();
         Touch.SetActive(false);
         PauseButton.SetActive(false);
         Loading.SetActive(true);

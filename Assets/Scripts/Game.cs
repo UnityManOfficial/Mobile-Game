@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public HealthBar healthBar;
+    public GameObject healthBarTurn;
 
     [SerializeField] [Range(1, 3)] int Difficulty = 1;
-
-
-    public int GameDifficulty()
-    {
-        return Difficulty;
-    }
+    public int HealthMax = 10;
+    public int HealthCurrent = 1;
+    public int Lives = 1;
 
     void Awake()
     {
@@ -30,17 +29,87 @@ public class Game : MonoBehaviour
         }
     }
 
+    void update()
+    {
+
+    }
+
     // Update is called once per frame
-    void Update()
+
+        public void HealthOn()
     {
-    DifficultyChanger();
+        healthBarTurn.SetActive(true);
     }
 
-    private void DifficultyChanger()
+    public void HealthOff()
     {
-
+        healthBarTurn.SetActive(false);
     }
 
+    public void DifficultyEasy()
+    {
+        Difficulty = 1;
+        HealthMax = 10;
+        HealthCurrent = HealthMax;
+        healthBar.SetMaxHealth(HealthMax);
+    }
 
+    public void DifficultyMed()
+    {
+        Difficulty = 2;
+        HealthMax = 5;
+        HealthCurrent = HealthMax;
+        healthBar.SetMaxHealth(HealthMax);
+    }
 
+    public void DifficultyHard()
+    {
+        Difficulty = 3;
+        HealthMax = 1;
+        HealthCurrent = HealthMax;
+        healthBar.SetMaxHealth(HealthMax);
+    }
+
+    public void TakeDamage()
+    {
+        HealthCurrent -= 1;
+        healthBar.SetHealth(HealthCurrent);
+        Death();
+    }
+
+    public void Death()
+    {
+        if(HealthCurrent <= 0)
+        {
+            StartCoroutine(DeathStart());
+            Debug.Log("I'm Dead!");
+        }
+    }
+
+    public void DeathGameOver()
+    {
+        if(Lives <= 0)
+        {
+            FindObjectOfType<PlatformChecker>().GameOver();
+            FindObjectOfType<Player>().DeathAnimation();
+        }
+    }
+
+    IEnumerator DeathStart()
+    {
+        HealthCurrent = HealthMax;
+        Lives -= 1;
+        DeathGameOver();
+        yield return new WaitForSeconds(1);
+        if(Lives >=0)
+        {
+            FindObjectOfType<Player>().DeathStart();
+            healthBar.SetHealth(HealthCurrent);
+        }
+    }
+
+    public void ResetGameSession()
+    {
+        Destroy(gameObject);
+    }
 }

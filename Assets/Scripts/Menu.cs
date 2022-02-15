@@ -94,18 +94,21 @@ public class Menu : MonoBehaviour
     public void EasyButton()
     {
         myAnimatorPlayer.SetBool("Run", true);
+        FindObjectOfType<Game>().DifficultyEasy();
         StartCoroutine(StartGameNow());
     }
 
     public void MediumButton()
     {
         myAnimatorPlayer.SetBool("Run", true);
+        FindObjectOfType<Game>().DifficultyMed();
         StartCoroutine(StartGameNow());
     }
 
     public void HardButton()
     {
         myAnimatorPlayer.SetBool("Hard", true);
+        FindObjectOfType<Game>().DifficultyHard();
         AudioSource.PlayClipAtPoint(Death, Camera.main.transform.position, 0.1f);
         StartCoroutine(StartGameNow());
     }
