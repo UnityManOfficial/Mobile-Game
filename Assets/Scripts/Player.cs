@@ -48,6 +48,11 @@ public class Player : MonoBehaviour
 
     //Default Unity Code
 
+    void awake()
+    {
+        
+    }
+
     void Start()
     {
         DoNotMove = true;

@@ -7,6 +7,12 @@ public class Game : MonoBehaviour
 
     [SerializeField] [Range(1, 3)] int Difficulty = 1;
 
+
+    public int GameDifficulty()
+    {
+        return Difficulty;
+    }
+
     void Awake()
     {
         dontDestroy();
