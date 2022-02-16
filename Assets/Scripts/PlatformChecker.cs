@@ -78,9 +78,20 @@ public class PlatformChecker : MonoBehaviour
 
     public void GameOver()
     {
+        StartCoroutine(GameOverStart());
+    }
+
+    IEnumerator GameOverStart()
+    {
         Touch.SetActive(false);
         PauseButton.SetActive(false);
         FindObjectOfType<Game>().HealthOff();
+        yield return new WaitForSeconds(3);
+        MyAnimatorFade.SetBool("Go", true);
+        yield return new WaitForSeconds(1);
+        Loading.SetActive(true);
+        MyAnimatorFade.SetBool("Go", false);
+        SceneManager.LoadScene("Game Over");
     }
 
     IEnumerator MenuStart()

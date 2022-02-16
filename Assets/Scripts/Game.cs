@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
 
     // Update is called once per frame
 
-        public void HealthOn()
+    public void HealthOn()
     {
         healthBarTurn.SetActive(true);
     }
@@ -44,6 +44,13 @@ public class Game : MonoBehaviour
     public void HealthOff()
     {
         healthBarTurn.SetActive(false);
+    }
+
+    public void Heal()
+    {
+        HealthCurrent = HealthMax;
+        Lives = 1;
+        healthBar.SetHealth(HealthCurrent);
     }
 
     public void DifficultyEasy()
@@ -79,7 +86,7 @@ public class Game : MonoBehaviour
 
     public void Death()
     {
-        if(HealthCurrent <= 0)
+        if (HealthCurrent <= 0)
         {
             StartCoroutine(DeathStart());
             Debug.Log("I'm Dead!");
@@ -88,10 +95,19 @@ public class Game : MonoBehaviour
 
     public void DeathGameOver()
     {
-        if(Lives <= 0)
+        if (Lives <= 0)
         {
             FindObjectOfType<PlatformChecker>().GameOver();
             FindObjectOfType<Player>().DeathAnimation();
+        }
+    }
+
+    public void Respawn()
+    {
+        if (Lives > 0)
+        {
+            FindObjectOfType<Player>().DeathStart();
+            healthBar.SetHealth(HealthCurrent);
         }
     }
 
@@ -101,11 +117,7 @@ public class Game : MonoBehaviour
         Lives -= 1;
         DeathGameOver();
         yield return new WaitForSeconds(1);
-        if(Lives >=0)
-        {
-            FindObjectOfType<Player>().DeathStart();
-            healthBar.SetHealth(HealthCurrent);
-        }
+        Respawn();
     }
 
     public void ResetGameSession()

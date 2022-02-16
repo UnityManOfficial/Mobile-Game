@@ -50,22 +50,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb51303f694ac442a77c4b3dab4f63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
   MovementSpeed: 5
   JumpVelocity: 5
   MinFallDistance: -20
   Grounded: 0
   Moving: 0
   DoNotMove: 0
-  HealthMax: 10
-  HealthCurrent: 1
-  MaxFallDamage: 1
-  WillFallDamage: 0
   NoDamage: 0
   DamageSounds:
   - {fileID: 8300000, guid: ff2aa56b073f5914db445e6028143b4c, type: 3}
   - {fileID: 8300000, guid: 44df2a0849c847d46b00478aebc6d44b, type: 3}
   - {fileID: 8300000, guid: b4d432997ed5ba74baaea26e27333647, type: 3}
+  DeathSoundClip: {fileID: 8300000, guid: bd6ad986c9a80a346ba4fd88c2c94e07, type: 3}
   StoneStepSounds:
   - {fileID: 8300000, guid: e71aed15e5ab56144a1e5611b66cea2c, type: 3}
   - {fileID: 8300000, guid: db62132c1c63d304fb49d8d70cf40963, type: 3}

@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     [Header("Player's Sounds")]
     [Tooltip("Player's taking damage sounds")] public AudioClip[] DamageSounds;
+    [Tooltip("Player's death sound")] public AudioClip DeathSoundClip;
     [Tooltip("Player's stepping on stone Sounds")] public AudioClip[] StoneStepSounds;
     [Tooltip("How loud would sounds be?")] [SerializeField] [Range(0, 1)] float Volume = 1.0f;
 
@@ -207,6 +208,11 @@ public class Player : MonoBehaviour
     {
         AudioClip GrassSteps = GetRandomGrassStepClip();
         AudioSource.PlayClipAtPoint(GrassSteps, Camera.main.transform.position, Volume);
+    }
+    
+    private void DeathSound()
+    {
+        AudioSource.PlayClipAtPoint(DeathSoundClip, Camera.main.transform.position, Volume);
     }
 
     private AudioClip GetRandomDamageClip()

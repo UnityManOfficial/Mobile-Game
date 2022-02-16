@@ -120,6 +120,7 @@ public class Menu : MonoBehaviour
         myAnimatorMusic.SetBool("Fade", true);
         myAnimatorFade.SetBool("Go", true);
         yield return new WaitForSeconds(1);
+        FindObjectOfType<Game>().Heal();
         Difficulty.SetActive(false);
         Fade.SetActive(false);
         Loading.SetActive(true);
