@@ -9,6 +9,7 @@ public class GameOverMenu : MonoBehaviour
 
     public AudioClip UIClick;
     public GameObject Fade;
+    public GameObject Loading;
 
 
     Animator myAnimatorFade;
@@ -38,6 +39,7 @@ public class GameOverMenu : MonoBehaviour
         myAnimatorFade.SetBool("Go", true);
         yield return new WaitForSeconds(1);
         FindObjectOfType<Game>().Heal();
+        Loading.SetActive(true);
         SceneManager.LoadScene("New Level");
     }
 
@@ -46,6 +48,7 @@ public class GameOverMenu : MonoBehaviour
         AudioSource.PlayClipAtPoint(UIClick, Camera.main.transform.position, 0.1f);
         myAnimatorFade.SetBool("Go", true);
         yield return new WaitForSeconds(1);
+        Loading.SetActive(true);
         SceneManager.LoadScene("Main Menu");
     }
 }

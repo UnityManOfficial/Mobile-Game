@@ -259,7 +259,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Death")
         {
-            StartCoroutine(Death());
+            TakeDamage();
         }
 
         if (collision.gameObject.tag == "NextLevel")
