@@ -123,7 +123,7 @@ public class Menu : MonoBehaviour
         Difficulty.SetActive(false);
         Fade.SetActive(false);
         Loading.SetActive(true);
-        SceneManager.LoadScene("Level Prototype");
+        SceneManager.LoadScene("New Level");
     }
 
 
