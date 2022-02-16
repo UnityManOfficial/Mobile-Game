@@ -89,7 +89,6 @@ public class Game : MonoBehaviour
         if (HealthCurrent <= 0)
         {
             StartCoroutine(DeathStart());
-            Debug.Log("I'm Dead!");
         }
     }
 
