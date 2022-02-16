@@ -81,6 +81,22 @@ public class PlatformChecker : MonoBehaviour
         StartCoroutine(GameOverStart());
     }
 
+    public void NextLevel()
+    {
+        StartCoroutine(NextLevelStart());
+    }
+
+    IEnumerator NextLevelStart()
+    {
+        MyAnimatorFade.SetBool("Go", true);
+        Touch.SetActive(false);
+        PauseButton.SetActive(false);
+        FindObjectOfType<Game>().HealthOff();
+        yield return new WaitForSeconds(1);
+        MyAnimatorFade.SetBool("Go", false);
+        Loading.SetActive(true);
+    }
+
     IEnumerator GameOverStart()
     {
         Touch.SetActive(false);

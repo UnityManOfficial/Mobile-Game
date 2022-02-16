@@ -310,6 +310,7 @@ public class Player : MonoBehaviour
 
     IEnumerator NextLevel()
     {
+        FindObjectOfType<PlatformChecker>().NextLevel();
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

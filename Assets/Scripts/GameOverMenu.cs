@@ -18,6 +18,7 @@ public class GameOverMenu : MonoBehaviour
     void Start()
     {
         myAnimatorFade = Fade.GetComponent<Animator>();
+        FindObjectOfType<Game>().HealthOff();
     }
 
     // Update is called once per frame
