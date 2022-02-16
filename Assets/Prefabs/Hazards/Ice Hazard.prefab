@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 998043380472840089}
   - component: {fileID: 998043380472840088}
+  - component: {fileID: 787586935348331384}
   - component: {fileID: 998043380472840091}
   - component: {fileID: 998043380472840087}
   - component: {fileID: 998043380472840086}
@@ -85,6 +86,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &787586935348331384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998043380472840090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76261f7020a8eac4abe83a179911901f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  WorldConstraint: {fileID: 0}
+  Speed: 0
+  waypointTarget: 0
 --- !u!60 &998043380472840091
 PolygonCollider2D:
   m_ObjectHideFlags: 0
